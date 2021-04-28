@@ -28,8 +28,6 @@ export const getUsers = (page = 1, limit = 25, userCount, status) => async (
     return "";
   }
 
-  
-
   axios
     .get(
       `https://white3snet.com/list.php?page=${page}&limit=${limit}${getQueryStatus()}${getQueryUserCount()}`
@@ -45,7 +43,7 @@ export const getUsers = (page = 1, limit = 25, userCount, status) => async (
           dispatch({ type: DELETE_ERROR_EVENT });
         }, 5000);
 
-        dispatch(getUsers(page, limit));
+        dispatch(getUsers(page, limit, userCount, status));
       }
     });
 };
